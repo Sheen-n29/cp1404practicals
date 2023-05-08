@@ -15,8 +15,22 @@ def main():
 
     in_file.close()
 
+    out_file = open('guitars.csv', 'a')
+
+    name = input("Guitar name: ")
+
+    while name != "":
+        year = int(input("Year: "))
+        cost = float(input("Cost: "))
+        print(f"{name} ({year}) : ${cost:.2f} added")
+        guitars.append(Guitar(name, year, cost))
+        name = input("Guitar name: ")
+
     for guitar in guitars:
         print(guitar)
+
+    for guitar in guitars:
+        out_file.write(f'{guitar}')
 
 
 main()
